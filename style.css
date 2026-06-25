@@ -27,6 +27,13 @@ h1 {
     font-weight: 10;
 }
 
+p {
+    font-family: "Verdana", serif;
+    font-style: normal;
+    font-weight: 10;
+    color: rgb(197, 197, 197);
+}
+
 .name {
     margin: 0px;
     display: flex;
@@ -91,20 +98,24 @@ main {
 .topnav {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     z-index: 9999;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.45);
 }
   
 /* Style the links inside the navigation bar */
 .topnav a {
-    float: right;
     color: #f2f2f2;
     background: #00000075;
     text-align: center;
     padding: 1vw 1vh;
     text-decoration: none;
     font-size: 30px;
+    white-space: nowrap;
 }
   
 /* Change the color of links on hover */
@@ -117,6 +128,16 @@ main {
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+@media (max-width: 650px) {
+    .topnav {
+        justify-content: center;
+    }
+    .topnav a {
+        font-size: 20px;
+        padding: 0.8rem 0.8rem;
+    }
 }
 
 .header {
@@ -231,6 +252,56 @@ a:hover.button, a:active.button, a:hover.fa {
     z-index: 1;
 }
 
+/* Two-column layout for About section */
+.about-grid {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    justify-content: center;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about-image {
+    flex: 0 0 320px;
+}
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1;   /* Forces the element to be a perfect square */
+    border-radius: 50%;    /* Rounds the square into a circle */
+    object-fit: cover;     /* Prevents distortion by cropping the edges */
+}
+.about-text {
+    flex: 1 1 480px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+    .about-grid {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .about-image {
+        flex: 0 0 auto;
+        max-width: 45%;
+        margin: 0 auto 0.75rem auto;
+    }
+    .about-image img {
+        height: auto; /* don't force full-height on stacked layout */
+        width: 100%;
+        max-width: 220px;
+    }
+    .about-text {
+        text-align: left;
+    }
+}
+
 /* *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; } // required */
 .grid {
 	position: relative;
@@ -300,7 +371,19 @@ h2 {
   font-weight: 200;
   font-size: 80px;
   margin: 0;
-  margin-top: 10vh;
+}
+
+#About {
+    padding-top: 10vh;
+}
+
+#Clients {
+    margin-top: 10vh;
+}
+
+#Projects {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
 }
 
 h3 {
@@ -324,7 +407,10 @@ h3 {
     border: 1px solid #999;
     background: #0b0c10;
     color: #fff;
-    font-size: 16px;
+    font-size: 26px;
+    font-family: "Bebas Neue", serif;
+    font-style: normal;
+    font-weight: 15;
 }
 
 .contact-btn {
@@ -333,8 +419,11 @@ h3 {
     padding: 0.9rem 1.2rem;
     border: none;
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 26px;
     cursor: pointer;
+    font-family: "Bebas Neue", serif;
+    font-style: normal;
+    font-weight: 15;
 }
 
 .contact-btn:hover { background: #4bdee8; }
